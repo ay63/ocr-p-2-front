@@ -1,0 +1,17 @@
+.info-detail-chart-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--main-green-color);
+  margin: 8px;
+  padding: 8px;
+  width: 250px;
+  border-radius: 8px;
+  max-width: 250px;
+
+  span {
+    font-weight: bold;
+    font-size: 16px;
+  }
+}
