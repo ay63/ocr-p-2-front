@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, map, Observable } from 'rxjs';
-import { Olympic } from './core/models/interfaces/Olympic';
-import { Participation } from './core/models/interfaces/Participation';
-import { OlympicService } from './core/services/olympic/olympic.service';
-import { CountryAllChartFormat } from './core/types/CountryAllChartFormat';
+import { Olympic } from '../../models/interfaces/Olympic';
+import { Participation } from '../../models/interfaces/Participation';
+import { OlympicService } from '../olympic/olympic.service';
+import { CountryAllChartFormat } from '../../types/CountryAllChartFormat';
 
 @Injectable({
   providedIn: 'root'
