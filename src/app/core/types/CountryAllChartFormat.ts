@@ -3,3 +3,4 @@ export type CountryAllChartFormat = {
   value: number
   extra: Object
 }
+

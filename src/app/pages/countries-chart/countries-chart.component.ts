@@ -16,8 +16,8 @@ import { CountryAllChartFormat } from 'src/app/core/types/CountryAllChartFormat'
   imports: [
     NgxChartsModule,
   ],
-  templateUrl: './country-chart.component.html',
-  styleUrl: './country-chart.component.scss',
+  templateUrl: './countries-chart.component.html',
+  styleUrl: './countries-chart.component.scss',
   host: {
     '(window:resize)': 'resizeChart()'
   }

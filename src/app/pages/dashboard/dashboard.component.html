@@ -10,11 +10,11 @@
     </div>
     <h1 class="title-dashboard">{{ title }}</h1>
     <div class="dashboard-info-chart">
-      <app-info-chart [title]="'Number of JOs'" [value]="totalOlympics"/>
-      <app-info-chart [title]="'Number of countries'" [value]="totalHostingCountries"/>
+      <app-info-detail-chart [title]="'Number of JOs'" [value]="totalOlympics"/>
+      <app-info-detail-chart [title]="'Number of countries'" [value]="totalHostingCountries"/>
     </div>
     <div class="dashboard-chart-container">
-      <app-country-chart [data]="dataForDashboard"/>
+      <app-countries-chart [data]="dataForDashboard"/>
     </div>
   </div>
 </section>

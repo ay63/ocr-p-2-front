@@ -9,7 +9,8 @@ import { CountryDetailChartFormat } from 'src/app/core/types/CountryDetailChartF
 import { Olympic } from 'src/app/core/models/interfaces/Olympic';
 import { takeUntil } from 'rxjs';
 import { Participation } from 'src/app/core/models/interfaces/Participation';
-import { CountryDataService } from '../../../../../ocr-project-2/src/app/core/services/country-data/country-data.service';
+import { ChartFormatService } from 'src/app/core/services/chart-format/chart-format.service';
+import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
 
 @Component({
   selector: 'app-dashboard-country-detail',
@@ -35,7 +36,8 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservable imple
   totalNumberMedals: number = 0;
   totalNumberOfAthletes: number = 0;
 
-  constructor(private countryDataService: CountryDataService,
+  constructor(private chartFormat: ChartFormatService,
+    private chartData: ChartDataService,
     private route: ActivatedRoute
   ) {
     super();
@@ -48,11 +50,11 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservable imple
   getCountryData(): void {
     const countryId: number = this.route.snapshot.params['id'];
 
-    this.countryDataService.getDataByCountryId(countryId).pipe(takeUntil(this.getUnsubscribe)).subscribe(
+    this.chartData.getDataByCountryId(countryId).pipe(takeUntil(this.getUnsubscribe)).subscribe(
       (countryData: Olympic | undefined) => {
         this.countrySelectedData = countryData;
         if (this.countrySelectedData !== undefined) {
-          this.dataCountryChart = this.countryDataService.getFormatDataForLineChartByCountry(this.countrySelectedData)
+          this.dataCountryChart = this.chartFormat.getFormatDataForLineChartByCountry(this.countrySelectedData)
         }
 
         if (countryData !== undefined) {

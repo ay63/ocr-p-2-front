@@ -1,0 +1,41 @@
+.ngx-charts-tooltip-content.type-tooltip {
+  background-color: var(--main-green-color) !important;
+  border-radius: 8px !important;
+  color: white !important;
+  padding: 8px !important;
+  max-width: 150px !important;
+  width: fit-content !important;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-top {
+  border-top: 8px solid var(--main-green-color) !important;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-right {
+  border-right: 8px solid var(--main-green-color) !important;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-bottom {
+  border-bottom: 8px solid var(--main-green-color) !important;
+}
+
+.ngx-charts-tooltip-content.type-tooltip .tooltip-caret.position-left {
+  border-left: 8px solid var(--main-green-color) !important;
+}
+
+.ngx-charts-tooltip-content {
+  max-width: max-content !important;
+  width: 100%;
+  padding: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+
+  .tooltip-val::before {
+    content: '\f5a2' !important;
+    font-family: 'Font Awesome 6 Free' !important;
+    margin-right: 4px !important;
+    color: white !important;
+  }
+
+}
+
