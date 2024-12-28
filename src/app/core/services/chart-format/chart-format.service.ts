@@ -5,6 +5,7 @@ import { Olympic } from '../../models/interfaces/Olympic';
 import { Participation } from '../../models/interfaces/Participation';
 import { OlympicService } from '../olympic/olympic.service';
 import { CountryAllChartFormat } from '../../types/CountryAllChartFormat';
+import { CountryDetailChartData } from '../../types/CountryDetailChartFormat';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class ChartFormatService {
     )
   }
 
-  getFormatDataForLineChartByCountry(olympic: Olympic): any {
+  getFormatDataForLineChartByCountry(olympic: Olympic): CountryDetailChartData[] {
     return [{
       name: olympic.country,
       series:

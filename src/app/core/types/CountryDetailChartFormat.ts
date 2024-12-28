@@ -3,7 +3,7 @@ type SeriesData = {
   value: number;
 }
 
-type CountryDetailChartData = {
+export type CountryDetailChartData = {
   name: string;
   series: SeriesData[];
 }

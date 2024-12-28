@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { OlympicService } from 'src/app/core/services/olympic/olympic.service';
+import { Component } from '@angular/core';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [DashboardComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
-  public olympics$: Observable<any> = of(null);
+export class HomeComponent {
 
-  constructor(private olympicService: OlympicService) {}
-
-  ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics();
-  }
 }
