@@ -1,0 +1,19 @@
+<section class="dashboard-container">
+  @if (countrySelectedData) {
+    <div class="dashboard-country-detail-data-section">
+      <h1 class="title-dashboard">{{ countrySelectedData.country }}</h1>
+      <div class="dashboard-country-detail-data">
+        <app-info-chart [title]="'Number of entries'" [value]="numberOfEntries"/>
+        <app-info-chart [title]="'Total number medals'" [value]="totalNumberMedals"/>
+        <app-info-chart [title]="'Total number of athletes'" [value]="totalNumberOfAthletes"/>
+      </div>
+      <div *ngIf="dataCountryChart?.length" class="dashboard-country-chart-container">
+        <app-country-detail-chart [data]="dataCountryChart"/>
+      </div>
+    </div>
+  } @else {
+    <h1 class="country-not-found">Country id does not exist</h1>
+    <a class="go-back" routerLink="">Go back</a>
+  }
+</section>
+
