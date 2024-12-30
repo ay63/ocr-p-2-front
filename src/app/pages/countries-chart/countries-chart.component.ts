@@ -8,7 +8,7 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFormat';
-
+import {OnResize} from "../../core/models/interfaces/OnResize";
 
 @Component({
   selector: 'app-countries-chart',
@@ -22,7 +22,7 @@ import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFo
     '(window:resize)': 'resizeChart()'
   }
 })
-export class CountriesChartComponent {
+export class CountriesChartComponent implements OnResize{
 
   @ViewChild('containerRef')
   containerRef!: ElementRef;
