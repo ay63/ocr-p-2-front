@@ -4,8 +4,9 @@ import { catchError, map, Observable } from 'rxjs';
 import { Olympic } from '../../models/interfaces/Olympic';
 import { Participation } from '../../models/interfaces/Participation';
 import { OlympicService } from '../olympic/olympic.service';
-import { CountryAllChartFormat } from '../../models/types/CountryAllChartFormat';
-import { CountryDetailChartData } from '../../models/types/CountryDetailChartFormat';
+import {CountryAllChartFormat} from "../../models/types/CountryAllChartFormat";
+import {CountryDetailChartData} from "../../models/types/CountryDetailChartFormat";
+
 
 @Injectable({
   providedIn: 'root'

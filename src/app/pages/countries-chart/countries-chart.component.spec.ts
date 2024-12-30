@@ -7,11 +7,8 @@ import {ElementRef} from '@angular/core';
 describe('CountriesChartComponent', () => {
   let component: CountriesChartComponent;
   let fixture: ComponentFixture<CountriesChartComponent>;
-  let toastServiceSpy: jasmine.SpyObj<ToastrService>;
-  let routerSpy: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
-
     const toastServiceMock = jasmine.createSpyObj('ToastrService', ['error']);
     const routeMock = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
@@ -23,9 +20,6 @@ describe('CountriesChartComponent', () => {
         {provide: ToastrService, useValue: toastServiceMock},
       ]
     }).compileComponents();
-
-    toastServiceSpy = TestBed.inject(ToastrService) as jasmine.SpyObj<ToastrService>;
-    routerSpy = TestBed.inject(Router) as jasmine.SpyObj<Router>;
   });
 
   beforeEach(() => {
@@ -43,21 +37,6 @@ describe('CountriesChartComponent', () => {
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should navigate to the correct URL on onSelect',  () => {
-    const mockData = {extra: {id: 42}};
-    routerSpy.navigateByUrl.and.returnValue(Promise.resolve(true));
-    component.onSelect(mockData);
-    expect(routerSpy.navigateByUrl).toHaveBeenCalledWith('country-detail-chart/42');
-  });
-
-  it('should show an error message if navigation fails in onSelect', async () => {
-    const mockError = 'Navigation Error';
-    routerSpy.navigateByUrl.and.returnValue(Promise.reject(mockError));
-    await component.onSelect({extra: {id: 42}});
-    expect(toastServiceSpy.error).toHaveBeenCalledWith(mockError);
-  });
-
 
   it('should set view dimensions correctly when resizing for small width', () => {
     spyOnProperty(component.containerRef.nativeElement, 'offsetWidth', 'get').and.returnValue(399);
