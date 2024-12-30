@@ -12,8 +12,6 @@ import {ChartFormatServiceMock} from "../../../test/mockData/chartFormatServiceM
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
-  let olympicServiceSpy: jasmine.SpyObj<OlympicService>;
-  let toastServiceSpy: jasmine.SpyObj<ToastrService>;
 
   beforeEach(async () => {
 

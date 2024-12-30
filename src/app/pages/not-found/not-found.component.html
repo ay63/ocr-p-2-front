@@ -1,4 +1,4 @@
 <div class="not-found-container">
   <h2 class="page-not-found">{{ title }}</h2>
-  <a class="go-back" routerLink=""  >Go Back</a>
+  <a *ngIf="!showGoBackLink" class="go-back" routerLink="">Go Back</a>
 </div>
