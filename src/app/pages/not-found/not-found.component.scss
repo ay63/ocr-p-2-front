@@ -1,8 +1,38 @@
-.center {
+.not-found-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.page-not-found {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.go-back {
+  color: var(--main-green-color);
+  font-weight: bold;
+  font-size: 2rem;
+
+  &:hover {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 800px) {
+  .not-found-container {
+    .page-not-found {
+      font-size: 1.5rem;
+    }
+
+    .go-back {
+      font-size: 1.25em;
+    }
+  }
 }

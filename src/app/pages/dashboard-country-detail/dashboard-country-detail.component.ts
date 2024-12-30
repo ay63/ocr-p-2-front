@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LineChartModule } from "@swimlane/ngx-charts";
-import { ActivatedRoute, RouterLink } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { NgIf } from "@angular/common";
 import { CountryDetailChartComponent } from '../country-detail-chart/country-detail-chart.component';
 import { InfoDetailChartComponent } from '../info-detail-chart/info-detail-chart.component';
@@ -11,6 +11,7 @@ import { takeUntil } from 'rxjs';
 import { Participation } from 'src/app/core/models/interfaces/Participation';
 import { ChartFormatService } from 'src/app/core/services/chart-format/chart-format.service';
 import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
+import {NotFoundComponent} from "../not-found/not-found.component";
 
 @Component({
   selector: 'app-dashboard-country-detail',
@@ -20,7 +21,7 @@ import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.se
     InfoDetailChartComponent,
     LineChartModule,
     NgIf,
-    RouterLink,
+    NotFoundComponent
   ],
   templateUrl: './dashboard-country-detail.component.html',
   styleUrl: './dashboard-country-detail.component.scss'

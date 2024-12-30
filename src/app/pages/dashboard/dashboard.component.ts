@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { takeUntil } from "rxjs";
-import { CountryDetailChartComponent } from '../country-detail-chart/country-detail-chart.component';
 import { InfoDetailChartComponent } from '../info-detail-chart/info-detail-chart.component';
 import { UnsubscribeObservable } from 'src/app/core/services/unsubsribe-observable/UnsubscribeObservable';
 import { CountryAllChartFormat } from 'src/app/core/types/CountryAllChartFormat';
@@ -12,7 +11,7 @@ import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.se
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CountryDetailChartComponent, InfoDetailChartComponent, CountriesChartComponent],
+  imports: [InfoDetailChartComponent, CountriesChartComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
