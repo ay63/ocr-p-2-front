@@ -5,7 +5,7 @@ import { NgIf } from "@angular/common";
 import { CountryDetailChartComponent } from '../country-detail-chart/country-detail-chart.component';
 import { InfoDetailChartComponent } from '../info-detail-chart/info-detail-chart.component';
 import { UnsubscribeObservable } from 'src/app/core/services/unsubsribe-observable/UnsubscribeObservable';
-import { CountryDetailChartFormat } from 'src/app/core/types/CountryDetailChartFormat';
+import { CountryDetailChartFormat } from 'src/app/core/models/types/CountryDetailChartFormat';
 import { Olympic } from 'src/app/core/models/interfaces/Olympic';
 import { takeUntil } from 'rxjs';
 import { Participation } from 'src/app/core/models/interfaces/Participation';

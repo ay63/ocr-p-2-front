@@ -1,6 +1,8 @@
 export type CountryAllChartFormat = {
   name: string;
   value: number
-  extra: Object
+  extra: {
+    id: number
+  }
 }
 

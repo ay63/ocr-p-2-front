@@ -24,7 +24,11 @@ import {ToastrModule} from 'ngx-toastr';
     NgxChartsModule,
     BrowserAnimationsModule,
     LoaderComponent,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      timeOut: 50000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    })
   ],
   providers: [
     {
