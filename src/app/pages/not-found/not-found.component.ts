@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {Component, Input, OnInit} from '@angular/core';
+import {Router, RouterLink} from "@angular/router";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-not-found',
@@ -7,13 +8,21 @@ import {RouterLink} from "@angular/router";
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss',
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf
   ],
 })
-export class NotFoundComponent {
+export class NotFoundComponent implements OnInit {
 
   @Input()
   title: string = 'No corresponding page found';
+  showGoBackLink!: boolean;
 
+  constructor(private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.showGoBackLink = this.router.url === "/";
+  }
 
 }
