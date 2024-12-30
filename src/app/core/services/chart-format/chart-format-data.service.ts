@@ -11,7 +11,7 @@ import {CountryDetailChartData} from "../../models/types/CountryDetailChartForma
 @Injectable({
   providedIn: 'root'
 })
-export class ChartFormatService {
+export class ChartFormatDataService {
 
   constructor(private olympicService: OlympicService, private toastService: ToastrService) {
   }

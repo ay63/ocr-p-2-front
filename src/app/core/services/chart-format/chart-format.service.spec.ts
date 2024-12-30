@@ -1,13 +1,13 @@
 import {TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {ChartFormatService} from "./chart-format.service";
+import {ChartFormatDataService} from "./chart-format-data.service";
 import {OlympicService} from "../olympic/olympic.service";
 import {OlympicsServiceMock} from "../../../../test/OlympicsServiceMock";
 import {ToastrService} from "ngx-toastr";
 
 describe('ChartFormatService', () => {
 
-  let service: ChartFormatService;
+  let service: ChartFormatDataService;
   const toastServiceMock = jasmine.createSpyObj('ToastrService', ['error']);
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,7 +18,7 @@ describe('ChartFormatService', () => {
       ]
     });
 
-    service = TestBed.inject(ChartFormatService);
+    service = TestBed.inject(ChartFormatDataService);
   });
 
 
