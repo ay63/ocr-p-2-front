@@ -1,4 +1,4 @@
-<div class="center">
-  <h2>No corresponding page found</h2>
-  <a routerLink="">Go back</a>
+<div class="not-found-container">
+  <h2 class="page-not-found">{{ title }}</h2>
+  <a *ngIf="!showGoBackLink" class="go-back" routerLink="">Go Back</a>
 </div>

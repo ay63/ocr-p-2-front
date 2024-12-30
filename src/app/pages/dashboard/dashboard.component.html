@@ -1,0 +1,24 @@
+@if(totalHostingCountries && totalOlympics && dataForDashboard){
+  <section class="dashboard-container">
+    <div class="dashboard-data-section">
+      <div class="dashboard-presentation-app">
+        <p>
+          Télésport is a web application designed to bring the history of the Olympic Games to life,
+          offering visually engaging and interactive graphical representations of key data such as participant
+          demographics,
+          medal counts, athlete statistics, and more from past editions of the Games.
+        </p>
+      </div>
+      <h1 class="title-dashboard">{{ title }}</h1>
+      <div class="dashboard-info-chart">
+        <app-info-detail-chart [title]="'Number of JOs'" [value]="totalOlympics"/>
+        <app-info-detail-chart [title]="'Number of countries'" [value]="totalHostingCountries"/>
+      </div>
+      <div class="dashboard-chart-container">
+        <app-countries-chart [data]="dataForDashboard"/>
+      </div>
+    </div>
+  </section>
+} @else {
+  <app-not-found [title]="'Error loading data'" ></app-not-found>
+}

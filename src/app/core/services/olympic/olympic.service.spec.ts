@@ -1,32 +1,25 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
-import {Olympic} from "../../models/interfaces/Olympic";
+import {TestBed} from '@angular/core/testing';
+import {OlympicService} from './olympic.service';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {ToastrService} from "ngx-toastr";
 
-@Injectable({
-  providedIn: 'root',
-})
-export class OlympicService {
-  private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<Olympic[] | null>(null);
+describe('OlympicService', () => {
+  let service: OlympicService;
+  let toastServiceSpy: jasmine.SpyObj<ToastrService>;
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [
+        {provide: ToastrService, useValue: toastServiceSpy}
+      ]
+    });
 
-  constructor(private http: HttpClient, private toastService: ToastrService) {
-  }
+    service = TestBed.inject(OlympicService);
+  });
 
-  loadInitialData() {
-    return this.http.get<Olympic[] | null>(this.olympicUrl).pipe(
-      tap((value) => this.olympics$.next(value)),
-      catchError((error: string, caught) => {
-        this.toastService.error(error);
-        this.olympics$.next(null);
-        return caught;
-      })
-    );
-  }
 
-  getOlympics() {
-    return this.olympics$.asObservable();
-  }
-}
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+});

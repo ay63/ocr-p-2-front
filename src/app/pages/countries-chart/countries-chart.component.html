@@ -1,0 +1,12 @@
+<div #containerRef>
+<ngx-charts-pie-chart
+  (window:resize)="resizeChart()"
+  [view]="view"
+  [results]="data"
+  [labels]="showLabels"
+  [arcWidth]="0.25"
+  [doughnut]="isDoughnut"
+  (select)="onSelect($event)"
+>
+</ngx-charts-pie-chart>
+</div>
