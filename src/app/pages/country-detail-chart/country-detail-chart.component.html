@@ -1,6 +1,6 @@
 <div  #containerRef>
   <ngx-charts-line-chart
-    [view]="[this.containerRef.offsetWidth, 400]"
+    (window:resize)="resizeChart()"
     [showXAxisLabel]="showXAxisLabel"
     [showYAxisLabel]="showYAxisLabel"
     [xAxis]="xAxis"
