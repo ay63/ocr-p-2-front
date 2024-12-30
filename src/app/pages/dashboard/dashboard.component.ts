@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { takeUntil } from "rxjs";
-import { CountryDetailChartComponent } from '../country-detail-chart/country-detail-chart.component';
-import { InfoDetailChartComponent } from '../info-detail-chart/info-detail-chart.component';
-import { UnsubscribeObservable } from 'src/app/core/services/unsubsribe-observable/UnsubscribeObservable';
-import { CountryAllChartFormat } from 'src/app/core/types/CountryAllChartFormat';
-import { ChartFormatService } from 'src/app/core/services/chart-format/chart-format.service';
-import { CountriesChartComponent } from '../countries-chart/countries-chart.component';
-import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
+import {takeUntil} from "rxjs";
+import {InfoDetailChartComponent} from '../info-detail-chart/info-detail-chart.component';
+import {UnsubscribeObservable} from 'src/app/core/services/unsubsribe-observable/UnsubscribeObservable';
+import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFormat';
+import {ChartFormatService} from 'src/app/core/services/chart-format/chart-format.service';
+import {CountriesChartComponent} from '../countries-chart/countries-chart.component';
+import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
+import {NotFoundComponent} from "../not-found/not-found.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CountryDetailChartComponent, InfoDetailChartComponent, CountriesChartComponent],
+  imports: [InfoDetailChartComponent, CountriesChartComponent, NotFoundComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent extends UnsubscribeObservable implements OnInit {
 
-  totalOlympics: number = 0;
-  totalHostingCountries: number = 0;
+  totalOlympics!: number;
+  totalHostingCountries!: number;
   dataForDashboard!: CountryAllChartFormat[];
   title!: string;
 
@@ -36,7 +36,7 @@ export class DashboardComponent extends UnsubscribeObservable implements OnInit 
     this.chartData.getTotalJos().pipe(takeUntil(this.getUnsubscribe)).subscribe(
       (value: number) => {
         this.totalOlympics = value
-      }
+      },
     );
 
     this.chartData.getTotalCountry().pipe(takeUntil(this.getUnsubscribe)).subscribe(

@@ -4,10 +4,10 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { NgxChartsModule } from "@swimlane/ngx-charts";
-import { Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
-import { CountryAllChartFormat } from 'src/app/core/types/CountryAllChartFormat';
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
+import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFormat';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class CountriesChartComponent {
   constructor(private router: Router, private toastService: ToastrService) {
   }
 
-  onSelect(data: any): void {
+  onSelect(data: CountryAllChartFormat): void {
     const idCountry: number = data.extra.id;
     this.router.navigateByUrl(`country-detail-chart/${idCountry}`).catch(error =>
       this.toastService.error(error))

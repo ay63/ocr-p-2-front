@@ -18,7 +18,7 @@ As you can see, an architecture has already been defined for the project. It is 
 
 - `components` folder: contains every reusable components
 - `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+- `core` folder: contains the business logic (`services`,`types` and `models` folders)
 
 I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
 
@@ -31,3 +31,4 @@ Good luck!
 # Lib
 
 - [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
+- [ngx-charts](https://swimlane.gitbook.io/ngx-charts)
