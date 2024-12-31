@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
+import {combineLatest} from 'rxjs';
 import {takeUntil} from "rxjs";
 import {InfoDetailChartComponent} from '../../components/info-detail-chart/info-detail-chart.component';
 import {UnsubscribeObservableService} from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
@@ -32,24 +32,25 @@ export class DashboardComponent extends UnsubscribeObservableService implements 
 
   ngOnInit(): void {
     this.title = 'Medals per country';
+    this.getCountriesData();
+  }
 
-    this.chartData.getTotalJos().pipe(takeUntil(this.getUnsubscribe)).subscribe(
-      (value: number) => {
-        this.totalOlympics = value
-      },
+  private getCountriesData(): void {
+    combineLatest([
+      this.chartData.getTotalJos(),
+      this.chartData.getTotalCountry(),
+      this.chartFormatService.getFormatDataForPieChartForAllCountry()
+    ]).pipe(takeUntil(this.getUnsubscribe)).subscribe(
+      ([totalOlympics, totalHostingCountries, dashboardData]: [number, number, CountryAllChartFormat[]]) => {
+        this.totalOlympics = totalOlympics;
+        this.totalHostingCountries = totalHostingCountries;
+        this.dataForDashboard = dashboardData;
+
+        this.isDataLoading = this.dataForDashboard?.length > 0
+          && this.totalOlympics > 0
+          && this.totalHostingCountries > 0;
+      }
     );
-
-    this.chartData.getTotalCountry().pipe(takeUntil(this.getUnsubscribe)).subscribe(
-      (value: number) => {
-        this.totalHostingCountries = value
-      }
-    )
-
-    this.chartFormatService.getFormatDataForPieChartForAllCountry().pipe(takeUntil(this.getUnsubscribe)).subscribe(
-      (dashboardData: CountryAllChartFormat[]) => {
-        this.dataForDashboard = dashboardData
-      }
-    )
   }
 
   override ngOnDestroy(): void {
