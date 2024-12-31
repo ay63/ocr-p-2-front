@@ -4,12 +4,12 @@ import { ActivatedRoute } from "@angular/router";
 import { NgIf } from "@angular/common";
 import { CountryDetailChartComponent } from '../country-detail-chart/country-detail-chart.component';
 import { InfoDetailChartComponent } from '../info-detail-chart/info-detail-chart.component';
-import { UnsubscribeObservable } from 'src/app/core/services/unsubsribe-observable/UnsubscribeObservable';
+import { UnsubscribeObservableService } from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
 import { CountryDetailChartFormat } from 'src/app/core/models/types/CountryDetailChartFormat';
 import { Olympic } from 'src/app/core/models/interfaces/Olympic';
 import { takeUntil } from 'rxjs';
 import { Participation } from 'src/app/core/models/interfaces/Participation';
-import { ChartFormatService } from 'src/app/core/services/chart-format/chart-format.service';
+import { ChartFormatDataService } from 'src/app/core/services/chart-format/chart-format-data.service';
 import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
 import {NotFoundComponent} from "../not-found/not-found.component";
 
@@ -26,7 +26,7 @@ import {NotFoundComponent} from "../not-found/not-found.component";
   templateUrl: './dashboard-country-detail.component.html',
   styleUrl: './dashboard-country-detail.component.scss'
 })
-export class DashboardCountryDetailComponent extends UnsubscribeObservable implements OnInit {
+export class DashboardCountryDetailComponent extends UnsubscribeObservableService implements OnInit {
 
   @Input()
   countrySelectedData!: Olympic | undefined;
@@ -37,7 +37,7 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservable imple
   totalNumberMedals: number = 0;
   totalNumberOfAthletes: number = 0;
 
-  constructor(private chartFormat: ChartFormatService,
+  constructor(private chartFormat: ChartFormatDataService,
     private chartData: ChartDataService,
     private route: ActivatedRoute
   ) {

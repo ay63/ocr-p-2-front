@@ -28,7 +28,7 @@ You're now ready to implement the requested features.
 
 Good luck!
 
-# Lib
+# Libs
 
 - [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
 - [ngx-charts](https://swimlane.gitbook.io/ngx-charts)

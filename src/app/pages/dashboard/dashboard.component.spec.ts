@@ -6,7 +6,7 @@ import {ChartDataService} from "../../core/services/chart-data/chart-data.servic
 import {OlympicService} from "../../core/services/olympic/olympic.service";
 import {ToastrService} from "ngx-toastr";
 import {chartDataServiceMock} from "../../../test/mockData/chartDataServiceMock";
-import {ChartFormatService} from "../../core/services/chart-format/chart-format.service";
+import {ChartFormatDataService} from "../../core/services/chart-format/chart-format-data.service";
 import {ChartFormatServiceMock} from "../../../test/mockData/chartFormatServiceMock";
 
 describe('DashboardComponent', () => {
@@ -23,7 +23,7 @@ describe('DashboardComponent', () => {
       providers: [
         {provide: OlympicService, useValue: olympicServiceMock},
         {provide: ChartDataService, useClass: chartDataServiceMock},
-        {provide: ChartFormatService, useClass: ChartFormatServiceMock},
+        {provide: ChartFormatDataService, useClass: ChartFormatServiceMock},
         {provide: ToastrService, useValue: toastServiceMock}
       ]
     })
