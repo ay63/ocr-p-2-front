@@ -22,7 +22,6 @@ export class DashboardComponent extends UnsubscribeObservableService implements 
   totalHostingCountries!: number;
   dataForDashboard!: CountryAllChartFormat[];
   title!: string;
-  isDataLoading: boolean = false;
 
   constructor(
     private chartData: ChartDataService,
