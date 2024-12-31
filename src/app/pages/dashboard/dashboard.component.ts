@@ -22,6 +22,7 @@ export class DashboardComponent extends UnsubscribeObservableService implements 
   totalHostingCountries!: number;
   dataForDashboard!: CountryAllChartFormat[];
   title!: string;
+  isDataLoaded!: boolean;
 
   constructor(
     private chartData: ChartDataService,
@@ -46,7 +47,7 @@ export class DashboardComponent extends UnsubscribeObservableService implements 
         this.totalHostingCountries = totalHostingCountries;
         this.dataForDashboard = dashboardData;
 
-        this.isDataLoading = this.dataForDashboard?.length > 0
+        this.isDataLoaded = this.dataForDashboard?.length > 0
           && this.totalOlympics > 0
           && this.totalHostingCountries > 0;
       }
