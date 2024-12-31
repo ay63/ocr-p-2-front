@@ -3,8 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import {ToastrService} from "ngx-toastr";
 import {OlympicService} from "./core/services/olympic/olympic.service";
-import {HeaderComponent} from "./pages/header/header.component";
-import {LoaderComponent} from "./pages/loader/loader.component";
+import {HeaderComponent} from "./components/header/header.component";
+import {LoaderComponent} from "./components/loader/loader.component";
 
 describe('AppComponent', () => {
   let olympicServiceSpy: jasmine.SpyObj<OlympicService>;

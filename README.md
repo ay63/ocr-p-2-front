@@ -6,29 +6,52 @@ Don't forget to install your node_modules before starting (`npm install`).
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Where to start
+## Project Structure
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+### `components` folder
+This folder contains all reusable components:
+- **`CountriesChart`**: A circular chart component.
+- **`CountryDetailChart`**: A line chart component.
+- **`InfoDetailChart`**: A detail section component.
+- **`Header`**: A header and navigation bar component.
+- **`Loader`**: A basic loader component.
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services`,`types` and `models` folders)
+### `pages` folder
+This folder contains components used for routing:
+- **`Dashboard`**: The main page component.
+- **`DashboardCountryDetail`**: The detail page component.
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+### `core` folder
+This folder contains the business logic, including the `services`, `types`, and `models` folders.
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+### `services`
+This folder contains utility services:
+- **`ChartData`**: Handles data processing for charts.
+- **`ChartFormat`**: Formats data for the graphics library.
+- **`Loader`**: Manages the logic for displaying loaders.
+- **`Olympic`**: Simulates API calls for Olympic data.
+- **`UnsubscribeObservable`**: Manages the closure of observables.
 
-You're now ready to implement the requested features.
+### `models`
+This folder contains interfaces and types used across the application.
 
-Good luck!
+#### `interfaces`
+- **`Olympic`**: Defines the structure of HTTP responses.
+- **`OnResize`**: Used to adjust chart sizes dynamically.
+- **`Participations`**: Defines the structure for participation data.
 
-# Libs
+#### `types`
+- **`CountryAllChartFormat`**: Defines the data format for the `CountriesChart` component.
+- **`CountryDetailChartFormat`**: Defines the data format for the `CountryDetailChart` component.
+
+
+# Libraries
 
 - [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
 - [ngx-charts](https://swimlane.gitbook.io/ngx-charts)
