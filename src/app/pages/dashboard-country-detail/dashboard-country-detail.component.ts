@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { LineChartModule } from "@swimlane/ngx-charts";
 import { ActivatedRoute } from "@angular/router";
 import { NgIf } from "@angular/common";
-import { CountryDetailChartComponent } from '../country-detail-chart/country-detail-chart.component';
-import { InfoDetailChartComponent } from '../info-detail-chart/info-detail-chart.component';
+import { CountryDetailChartComponent } from '../../components/country-detail-chart/country-detail-chart.component';
+import { InfoDetailChartComponent } from '../../components/info-detail-chart/info-detail-chart.component';
 import { UnsubscribeObservableService } from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
 import { CountryDetailChartFormat } from 'src/app/core/models/types/CountryDetailChartFormat';
 import { Olympic } from 'src/app/core/models/interfaces/Olympic';
@@ -11,7 +11,7 @@ import { takeUntil } from 'rxjs';
 import { Participation } from 'src/app/core/models/interfaces/Participation';
 import { ChartFormatDataService } from 'src/app/core/services/chart-format/chart-format-data.service';
 import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
-import {NotFoundComponent} from "../not-found/not-found.component";
+import {NotFoundComponent} from "../../components/not-found/not-found.component";
 
 @Component({
   selector: 'app-dashboard-country-detail',

@@ -13,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
 
 .dashboard-country-chart-container {
@@ -39,6 +40,7 @@
 @media (max-width: 600px) {
   .dashboard-country-detail-data {
     width: min-content;
+
   }
 
   .dashboard-country-detail-container {
