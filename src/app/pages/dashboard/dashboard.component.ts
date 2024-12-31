@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 
 import {takeUntil} from "rxjs";
 import {InfoDetailChartComponent} from '../info-detail-chart/info-detail-chart.component';
-import {UnsubscribeObservable} from 'src/app/core/services/unsubsribe-observable/UnsubscribeObservable';
+import {UnsubscribeObservableService} from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
 import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFormat';
-import {ChartFormatService} from 'src/app/core/services/chart-format/chart-format.service';
+import {ChartFormatDataService} from 'src/app/core/services/chart-format/chart-format-data.service';
 import {CountriesChartComponent} from '../countries-chart/countries-chart.component';
 import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
 import {NotFoundComponent} from "../not-found/not-found.component";
@@ -16,7 +16,7 @@ import {NotFoundComponent} from "../not-found/not-found.component";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent extends UnsubscribeObservable implements OnInit {
+export class DashboardComponent extends UnsubscribeObservableService implements OnInit {
 
   totalOlympics!: number;
   totalHostingCountries!: number;
@@ -25,7 +25,7 @@ export class DashboardComponent extends UnsubscribeObservable implements OnInit 
 
   constructor(
     private chartData: ChartDataService,
-    private chartFormatService: ChartFormatService
+    private chartFormatService: ChartFormatDataService
   ) {
     super();
   }
