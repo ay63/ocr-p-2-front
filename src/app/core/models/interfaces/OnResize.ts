@@ -1,4 +1,4 @@
 
 export interface OnResize{
-  resizeChart(): void;
+  onResize(): void;
 }

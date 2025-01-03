@@ -1,6 +1,6 @@
 <div #containerRef>
 <ngx-charts-pie-chart
-  (window:resize)="resizeChart()"
+  (window:resize)="onResize()"
   [view]="view"
   [results]="data"
   [labels]="showLabels"

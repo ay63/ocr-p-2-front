@@ -231,11 +231,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onSelect" >onSelect</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#onResize" >onResize</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#resizeChart" >resizeChart</a>
+                                <a href="#onSelect" >onSelect</a>
                             </li>
                         </ul>
                     </td>
@@ -360,6 +360,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="onResize"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>onResize</b></span>
+                        <a href="#onResize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onResize()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/components/countries-chart/countries-chart.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="onSelect"></a>
                     <span class="name">
                         <span ><b>onSelect</b></span>
@@ -419,45 +458,6 @@
                             <div class="io-description">
                                 
                             </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resizeChart"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>resizeChart</b></span>
-                        <a href="#resizeChart"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resizeChart()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">src/app/components/countries-chart/countries-chart.component.ts:46</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
                 </td>
             </tr>
         </tbody>
@@ -650,7 +650,7 @@ import {OnResize} from &quot;../../core/models/interfaces/OnResize&quot;;
   templateUrl: &#x27;./countries-chart.component.html&#x27;,
   styleUrl: &#x27;./countries-chart.component.scss&#x27;,
   host: {
-    &#x27;(window:resize)&#x27;: &#x27;resizeChart()&#x27;
+    &#x27;(window:resize)&#x27;: &#x27;onResize()&#x27;
   }
 })
 export class CountriesChartComponent implements OnResize{
@@ -674,7 +674,7 @@ export class CountriesChartComponent implements OnResize{
       this.toastService.error(error))
   }
 
-  public resizeChart(): void {
+  public onResize(): void {
     if (this.containerRef.nativeElement.offsetWidth &lt; 400) {
       this.view &#x3D; [this.containerRef.nativeElement.offsetWidth, 300]
     } else {
@@ -689,7 +689,7 @@ export class CountriesChartComponent implements OnResize{
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div #containerRef&gt;
 &lt;ngx-charts-pie-chart
-  (window:resize)&#x3D;&quot;resizeChart()&quot;
+  (window:resize)&#x3D;&quot;onResize()&quot;
   [view]&#x3D;&quot;view&quot;
   [results]&#x3D;&quot;data&quot;
   [labels]&#x3D;&quot;showLabels&quot;
@@ -728,7 +728,7 @@ export class CountriesChartComponent implements OnResize{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div #containerRef><ngx-charts-pie-chart  (window:resize)="resizeChart()"  [view]="view"  [results]="data"  [labels]="showLabels"  [arcWidth]="0.25"  [doughnut]="isDoughnut"  (select)="onSelect($event)"></ngx-charts-pie-chart></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div #containerRef><ngx-charts-pie-chart  (window:resize)="onResize()"  [view]="view"  [results]="data"  [labels]="showLabels"  [arcWidth]="0.25"  [doughnut]="isDoughnut"  (select)="onSelect($event)"></ngx-charts-pie-chart></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CountriesChartComponent', 'selector': 'app-countries-chart'},{'name': 'CountryDetailChartComponent', 'selector': 'app-country-detail-chart'},{'name': 'DashboardCountriesComponent', 'selector': 'app-dashboard-countries'},{'name': 'DashboardCountryDetailComponent', 'selector': 'app-dashboard-country-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InfoDetailChartComponent', 'selector': 'app-info-detail-chart'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CountriesChartComponent'};

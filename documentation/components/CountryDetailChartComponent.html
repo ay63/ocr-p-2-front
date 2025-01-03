@@ -241,7 +241,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#resizeChart" >resizeChart</a>
+                                <a href="#onResize" >onResize</a>
                             </li>
                         </ul>
                     </td>
@@ -306,18 +306,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="resizeChart"></a>
+                    <a name="onResize"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
-                        <span ><b>resizeChart</b></span>
-                        <a href="#resizeChart"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>onResize</b></span>
+                        <a href="#onResize"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resizeChart()</code>
+                    <code>onResize()</code>
                 </td>
             </tr>
 
@@ -613,7 +613,7 @@ import {OnResize} from &quot;../../core/models/interfaces/OnResize&quot;;
   templateUrl: &#x27;./country-detail-chart.component.html&#x27;,
   styleUrl: &#x27;./country-detail-chart.component.scss&#x27;,
   host: {
-    &#x27;(window:resize)&#x27;: &#x27;resizeChart()&#x27;
+    &#x27;(window:resize)&#x27;: &#x27;onResize()&#x27;
   }
 })
 export class CountryDetailChartComponent implements OnResize {
@@ -631,7 +631,7 @@ export class CountryDetailChartComponent implements OnResize {
   xAxisLabel: string &#x3D; &#x27;Dates&#x27;;
   timeline: boolean &#x3D; true;
 
-  public resizeChart(): void {
+  public onResize(): void {
     if (this.containerRef.nativeElement.offsetWidth &lt; 400) {
       this.view &#x3D; [this.containerRef.nativeElement.offsetWidth, 600]
     } else {
@@ -647,7 +647,7 @@ export class CountryDetailChartComponent implements OnResize {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div  #containerRef&gt;
   &lt;ngx-charts-line-chart
-    (window:resize)&#x3D;&quot;resizeChart()&quot;
+    (window:resize)&#x3D;&quot;onResize()&quot;
     [showXAxisLabel]&#x3D;&quot;showXAxisLabel&quot;
     [showYAxisLabel]&#x3D;&quot;showYAxisLabel&quot;
     [xAxis]&#x3D;&quot;xAxis&quot;
@@ -687,7 +687,7 @@ export class CountryDetailChartComponent implements OnResize {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div  #containerRef>  <ngx-charts-line-chart    (window:resize)="resizeChart()"    [showXAxisLabel]="showXAxisLabel"    [showYAxisLabel]="showYAxisLabel"    [xAxis]="xAxis"    [yAxis]="yAxis"    [xAxisLabel]="xAxisLabel"    [timeline]="timeline"    [results]="data"  >  </ngx-charts-line-chart></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div  #containerRef>  <ngx-charts-line-chart    (window:resize)="onResize()"    [showXAxisLabel]="showXAxisLabel"    [showYAxisLabel]="showYAxisLabel"    [xAxis]="xAxis"    [yAxis]="yAxis"    [xAxisLabel]="xAxisLabel"    [timeline]="timeline"    [results]="data"  >  </ngx-charts-line-chart></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CountriesChartComponent', 'selector': 'app-countries-chart'},{'name': 'CountryDetailChartComponent', 'selector': 'app-country-detail-chart'},{'name': 'DashboardCountriesComponent', 'selector': 'app-dashboard-countries'},{'name': 'DashboardCountryDetailComponent', 'selector': 'app-dashboard-country-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InfoDetailChartComponent', 'selector': 'app-info-detail-chart'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CountryDetailChartComponent'};

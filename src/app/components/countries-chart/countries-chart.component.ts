@@ -19,7 +19,7 @@ import {OnResize} from "../../core/models/interfaces/OnResize";
   templateUrl: './countries-chart.component.html',
   styleUrl: './countries-chart.component.scss',
   host: {
-    '(window:resize)': 'resizeChart()'
+    '(window:resize)': 'onResize()'
   }
 })
 export class CountriesChartComponent implements OnResize{
@@ -43,7 +43,7 @@ export class CountriesChartComponent implements OnResize{
       this.toastService.error(error))
   }
 
-  public resizeChart(): void {
+  public onResize(): void {
     if (this.containerRef.nativeElement.offsetWidth < 400) {
       this.view = [this.containerRef.nativeElement.offsetWidth, 300]
     } else {
