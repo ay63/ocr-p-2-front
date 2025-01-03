@@ -10,13 +10,13 @@ import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.serv
 import {NotFoundComponent} from "../../components/not-found/not-found.component";
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-dashboard-countries',
   standalone: true,
   imports: [InfoDetailChartComponent, CountriesChartComponent, NotFoundComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  templateUrl: './dashboard-countries.component.html',
+  styleUrl: './dashboard-countries.component.scss'
 })
-export class DashboardComponent extends UnsubscribeObservableService implements OnInit {
+export class DashboardCountriesComponent extends UnsubscribeObservableService implements OnInit {
 
   totalOlympics!: number;
   totalHostingCountries!: number;
