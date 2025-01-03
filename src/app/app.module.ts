@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HeaderComponent} from "./components/header/header.component";
 import {LoaderHttpInterceptorService} from './core/services/loader-http-interceptor/loader-http-interceptor.service';
-import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {DashboardCountriesComponent} from './pages/dashboard-countries/dashboard-countries.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoaderComponent} from './components/loader/loader.component';
@@ -20,7 +20,7 @@ import {ToastrModule} from 'ngx-toastr';
     HttpClientModule,
     NotFoundComponent,
     HeaderComponent,
-    DashboardComponent,
+    DashboardCountriesComponent,
     NgxChartsModule,
     BrowserAnimationsModule,
     LoaderComponent,

@@ -2,12 +2,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {DashboardCountryDetailComponent} from './pages/dashboard-country-detail/dashboard-country-detail.component';
-import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+import {DashboardCountriesComponent} from "./pages/dashboard-countries/dashboard-countries.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: DashboardCountriesComponent,
   },
   {
     path: 'country-detail-chart/:id',
