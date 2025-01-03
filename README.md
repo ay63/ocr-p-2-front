@@ -24,7 +24,7 @@ This folder contains all reusable components:
 
 ### `pages` folder
 This folder contains components used for routing:
-- **`Dashboard`**: The main page component.
+- **`DashboardCountries`**: The main page component.
 - **`DashboardCountryDetail`**: The detail page component.
 
 ### `core` folder

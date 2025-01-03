@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {DashboardComponent} from "./dashboard.component";
+import {DashboardCountriesComponent} from "./dashboard-countries.component";
 import {ChartDataService} from "../../core/services/chart-data/chart-data.service";
 import {OlympicService} from "../../core/services/olympic/olympic.service";
 import {ToastrService} from "ngx-toastr";
@@ -10,8 +10,8 @@ import {ChartFormatDataService} from "../../core/services/chart-format/chart-for
 import {ChartFormatServiceMock} from "../../../test/mockData/chartFormatServiceMock";
 
 describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+  let component: DashboardCountriesComponent;
+  let fixture: ComponentFixture<DashboardCountriesComponent>;
 
   beforeEach(async () => {
 
@@ -29,12 +29,12 @@ describe('DashboardComponent', () => {
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(DashboardCountriesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create DashboardComponent', () => {
+  it('should create DashboardCountriesComponent', () => {
     expect(component).toBeTruthy();
   });
 });
