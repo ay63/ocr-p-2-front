@@ -10,7 +10,7 @@ import {OnResize} from "../../core/models/interfaces/OnResize";
   templateUrl: './country-detail-chart.component.html',
   styleUrl: './country-detail-chart.component.scss',
   host: {
-    '(window:resize)': 'resizeChart()'
+    '(window:resize)': 'onResize()'
   }
 })
 export class CountryDetailChartComponent implements OnResize {
@@ -28,7 +28,7 @@ export class CountryDetailChartComponent implements OnResize {
   xAxisLabel: string = 'Dates';
   timeline: boolean = true;
 
-  public resizeChart(): void {
+  public onResize(): void {
     if (this.containerRef.nativeElement.offsetWidth < 400) {
       this.view = [this.containerRef.nativeElement.offsetWidth, 600]
     } else {

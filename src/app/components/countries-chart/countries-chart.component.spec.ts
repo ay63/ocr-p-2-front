@@ -40,7 +40,7 @@ describe('CountriesChartComponent', () => {
 
   it('should set view dimensions correctly when resizing for small width', () => {
     spyOnProperty(component.containerRef.nativeElement, 'offsetWidth', 'get').and.returnValue(399);
-    component.resizeChart();
+    component.onResize();
     expect(component.view).toEqual([399, 300]);
   });
 
@@ -53,7 +53,7 @@ describe('CountriesChartComponent', () => {
   it('should update the view on resizeChart call', () => {
     spyOnProperty(component.containerRef.nativeElement, 'offsetWidth', 'get').and.returnValue(800);
     spyOnProperty(component.containerRef.nativeElement, 'offsetHeight', 'get').and.returnValue(600);
-    component.resizeChart();
+    component.onResize();
     expect(component.view).toEqual([800, 600]);
   });
 });
