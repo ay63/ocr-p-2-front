@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   Input,
@@ -8,7 +9,7 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFormat';
-import {OnResize} from "../../core/models/interfaces/OnResize";
+
 
 @Component({
   selector: 'app-countries-chart',
@@ -18,11 +19,9 @@ import {OnResize} from "../../core/models/interfaces/OnResize";
   ],
   templateUrl: './countries-chart.component.html',
   styleUrl: './countries-chart.component.scss',
-  host: {
-    '(window:resize)': 'onResize()'
-  }
+
 })
-export class CountriesChartComponent implements OnResize{
+export class CountriesChartComponent {
 
   @ViewChild('containerRef')
   containerRef!: ElementRef;
@@ -43,12 +42,5 @@ export class CountriesChartComponent implements OnResize{
       this.toastService.error(error))
   }
 
-  public onResize(): void {
-    if (this.containerRef.nativeElement.offsetWidth < 400) {
-      this.view = [this.containerRef.nativeElement.offsetWidth, 300]
-    } else {
-      this.view = [this.containerRef.nativeElement.offsetWidth, this.containerRef.nativeElement.offsetHeight]
-    }
-  }
 
 }

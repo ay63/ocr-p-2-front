@@ -20,5 +20,5 @@
     </div>
   </section>
 } @else {
-  <app-not-found [title]="'Error loading data'" ></app-not-found>
+  <app-http-error [message]="'Error loading data'" [statusCode]=500  ></app-http-error>
 }

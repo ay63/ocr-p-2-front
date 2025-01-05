@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NotFoundComponent} from './components/not-found/not-found.component';
 import {HeaderComponent} from "./components/header/header.component";
 import {LoaderHttpInterceptorService} from './core/services/loader-http-interceptor/loader-http-interceptor.service';
 import {DashboardCountriesComponent} from './pages/dashboard-countries/dashboard-countries.component';
@@ -11,6 +10,7 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoaderComponent} from './components/loader/loader.component';
 import {ToastrModule} from 'ngx-toastr';
+import {HttpErrorComponent} from "./components/http-error/http-error.component";
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +18,7 @@ import {ToastrModule} from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NotFoundComponent,
+    HttpErrorComponent,
     HeaderComponent,
     DashboardCountriesComponent,
     NgxChartsModule,

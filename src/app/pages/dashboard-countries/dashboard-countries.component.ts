@@ -7,12 +7,13 @@ import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFo
 import {ChartFormatDataService} from 'src/app/core/services/chart-format/chart-format-data.service';
 import {CountriesChartComponent} from '../../components/countries-chart/countries-chart.component';
 import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
-import {NotFoundComponent} from "../../components/not-found/not-found.component";
+import {HttpErrorComponent} from "../../components/http-error/http-error.component";
+
 
 @Component({
   selector: 'app-dashboard-countries',
   standalone: true,
-  imports: [InfoDetailChartComponent, CountriesChartComponent, NotFoundComponent],
+  imports: [InfoDetailChartComponent, CountriesChartComponent, HttpErrorComponent],
   templateUrl: './dashboard-countries.component.html',
   styleUrl: './dashboard-countries.component.scss'
 })

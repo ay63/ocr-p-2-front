@@ -1,7 +1,6 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {CountryDetailChartFormat} from "../../core/models/types/CountryDetailChartFormat";
-import {OnResize} from "../../core/models/interfaces/OnResize";
 
 @Component({
   selector: 'app-country-detail-chart',
@@ -9,18 +8,15 @@ import {OnResize} from "../../core/models/interfaces/OnResize";
   imports: [NgxChartsModule],
   templateUrl: './country-detail-chart.component.html',
   styleUrl: './country-detail-chart.component.scss',
-  host: {
-    '(window:resize)': 'onResize()'
-  }
 })
-export class CountryDetailChartComponent implements OnResize {
+
+export class CountryDetailChartComponent  {
 
   @ViewChild('containerRef')
   containerRef!: ElementRef;
 
   @Input()
   data!: CountryDetailChartFormat|[]
-  view!: [number, number];
   xAxis: boolean = true;
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
@@ -28,13 +24,6 @@ export class CountryDetailChartComponent implements OnResize {
   xAxisLabel: string = 'Dates';
   timeline: boolean = true;
 
-  public onResize(): void {
-    if (this.containerRef.nativeElement.offsetWidth < 400) {
-      this.view = [this.containerRef.nativeElement.offsetWidth, 600]
-    } else {
-      this.view = [this.containerRef.nativeElement.offsetWidth, this.containerRef.nativeElement.offsetHeight]
-    }
-  }
 
 }
 

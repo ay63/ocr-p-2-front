@@ -1,0 +1,5 @@
+<div class="http-error-container">
+  <h2 class="page-http-error">{{ message }}</h2>
+  <span *ngIf="statusCode" class="http-error-code">{{statusCode}}</span>
+  <a *ngIf="!showGoBackLink" class="go-back" routerLink="">Go Back</a>
+</div>

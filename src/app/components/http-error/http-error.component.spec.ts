@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotFoundComponent } from './not-found.component';
+import { HttpErrorComponent } from './http-error.component';
 import {ActivatedRoute} from "@angular/router";
 import {of} from "rxjs";
 
 describe('NotFoundComponent', () => {
-  let component: NotFoundComponent;
-  let fixture: ComponentFixture<NotFoundComponent>;
+  let component: HttpErrorComponent;
+  let fixture: ComponentFixture<HttpErrorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -22,7 +22,7 @@ describe('NotFoundComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NotFoundComponent);
+    fixture = TestBed.createComponent(HttpErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
