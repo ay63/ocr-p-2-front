@@ -13,5 +13,5 @@
     </div>
   </section>
 } @else {
-  <app-not-found [title]="'Country not found in data'"></app-not-found>
+  <app-http-error [title]="'Country not found in data'" [statusCode]="404" />
 }

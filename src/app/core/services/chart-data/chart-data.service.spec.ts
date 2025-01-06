@@ -58,8 +58,8 @@ describe('ChartData service', () => {
       });
     });
 
-    it('should handle errors and show an error message', () => {
-      const errorMessage = 'An error occurred';
+    it('should handle errors and show an http-error message', () => {
+      const errorMessage = 'An http-error occurred';
       olympicServiceSpy.getOlympics.and.returnValue(throwError(errorMessage));
 
       service.getTotalJos().subscribe();
@@ -76,8 +76,8 @@ describe('ChartData service', () => {
       });
     });
 
-    it('should handle errors and show an error message', () => {
-      const errorMessage = 'An error occurred';
+    it('should handle errors and show an http-error message', () => {
+      const errorMessage = 'An http-error occurred';
       olympicServiceSpy.getOlympics.and.returnValue(throwError(errorMessage));
       service.getTotalCountry().subscribe();
       expect(toastServiceSpy.error).toHaveBeenCalledWith(errorMessage);

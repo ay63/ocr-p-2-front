@@ -11,7 +11,7 @@ import { takeUntil } from 'rxjs';
 import { Participation } from 'src/app/core/models/interfaces/Participation';
 import { ChartFormatDataService } from 'src/app/core/services/chart-format/chart-format-data.service';
 import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
-import {NotFoundComponent} from "../../components/not-found/not-found.component";
+import {HttpErrorComponent} from "../../components/http-error/http-error.component";
 
 @Component({
   selector: 'app-dashboard-country-detail',
@@ -21,7 +21,7 @@ import {NotFoundComponent} from "../../components/not-found/not-found.component"
     InfoDetailChartComponent,
     LineChartModule,
     NgIf,
-    NotFoundComponent
+    HttpErrorComponent
   ],
   templateUrl: './dashboard-country-detail.component.html',
   styleUrl: './dashboard-country-detail.component.scss'

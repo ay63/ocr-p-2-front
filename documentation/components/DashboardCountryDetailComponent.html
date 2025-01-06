@@ -169,7 +169,7 @@
                                 <code><a href="../components/InfoDetailChartComponent.html" target="_self" >InfoDetailChartComponent</a></code>
                             <code>LineChartModule</code>
                             <code>NgIf</code>
-                                <code><a href="../components/NotFoundComponent.html" target="_self" >NotFoundComponent</a></code>
+                                <code><a href="../components/HttpErrorComponent.html" target="_self" >HttpErrorComponent</a></code>
                 </td>
             </tr>
 
@@ -671,7 +671,7 @@ import { takeUntil } from &#x27;rxjs&#x27;;
 import { Participation } from &#x27;src/app/core/models/interfaces/Participation&#x27;;
 import { ChartFormatDataService } from &#x27;src/app/core/services/chart-format/chart-format-data.service&#x27;;
 import { ChartDataService } from &#x27;src/app/core/services/chart-data/chart-data.service&#x27;;
-import {NotFoundComponent} from &quot;../../components/not-found/not-found.component&quot;;
+import {HttpErrorComponent} from &quot;../../components/http-error/http-error.component&quot;;
 
 @Component({
   selector: &#x27;app-dashboard-country-detail&#x27;,
@@ -681,7 +681,7 @@ import {NotFoundComponent} from &quot;../../components/not-found/not-found.compo
     InfoDetailChartComponent,
     LineChartModule,
     NgIf,
-    NotFoundComponent
+    HttpErrorComponent
   ],
   templateUrl: &#x27;./dashboard-country-detail.component.html&#x27;,
   styleUrl: &#x27;./dashboard-country-detail.component.scss&#x27;
@@ -746,7 +746,7 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservableServic
     &lt;/div&gt;
   &lt;/section&gt;
 } @else {
-  &lt;app-not-found [title]&#x3D;&quot;&#x27;Country not found in data&#x27;&quot;&gt;&lt;/app-not-found&gt;
+  &lt;app-http-error [title]&#x3D;&quot;&#x27;Country not found in data&#x27;&quot; [statusCode]&#x3D;&quot;404&quot; /&gt;
 }
 </code></pre>
     </div>
@@ -777,8 +777,8 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservableServic
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>@if (countrySelectedData) {  <section class="dashboard-container">    <div class="dashboard-country-detail-data-section">      <h1 class="title-dashboard">{{ countrySelectedData.country }}</h1>      <div class="dashboard-country-detail-data">        <app-info-detail-chart [title]="\'Number of entries\'" [value]="numberOfEntries"/>        <app-info-detail-chart [title]="\'Total number medals\'" [value]="totalNumberMedals"/>        <app-info-detail-chart [title]="\'Total number of athletes\'" [value]="totalNumberOfAthletes"/>      </div>      <div *ngIf="dataCountryChart?.length" class="dashboard-country-chart-container">        <app-country-detail-chart [data]="dataCountryChart"/>      </div>    </div>  </section>} @else {  <app-not-found [title]="\'Country not found in data\'"></app-not-found>}</div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CountriesChartComponent', 'selector': 'app-countries-chart'},{'name': 'CountryDetailChartComponent', 'selector': 'app-country-detail-chart'},{'name': 'DashboardCountriesComponent', 'selector': 'app-dashboard-countries'},{'name': 'DashboardCountryDetailComponent', 'selector': 'app-dashboard-country-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InfoDetailChartComponent', 'selector': 'app-info-detail-chart'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'}];
+        var COMPONENT_TEMPLATE = '<div>@if (countrySelectedData) {  <section class="dashboard-container">    <div class="dashboard-country-detail-data-section">      <h1 class="title-dashboard">{{ countrySelectedData.country }}</h1>      <div class="dashboard-country-detail-data">        <app-info-detail-chart [title]="\'Number of entries\'" [value]="numberOfEntries"/>        <app-info-detail-chart [title]="\'Total number medals\'" [value]="totalNumberMedals"/>        <app-info-detail-chart [title]="\'Total number of athletes\'" [value]="totalNumberOfAthletes"/>      </div>      <div *ngIf="dataCountryChart?.length" class="dashboard-country-chart-container">        <app-country-detail-chart [data]="dataCountryChart"/>      </div>    </div>  </section>} @else {  <app-http-error [title]="\'Country not found in data\'" [statusCode]="404" />}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CountriesChartComponent', 'selector': 'app-countries-chart'},{'name': 'CountryDetailChartComponent', 'selector': 'app-country-detail-chart'},{'name': 'DashboardCountriesComponent', 'selector': 'app-dashboard-countries'},{'name': 'DashboardCountryDetailComponent', 'selector': 'app-dashboard-country-detail'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HttpErrorComponent', 'selector': 'app-http-error'},{'name': 'InfoDetailChartComponent', 'selector': 'app-info-detail-chart'},{'name': 'LoaderComponent', 'selector': 'app-loader'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DashboardCountryDetailComponent'};
 </script>

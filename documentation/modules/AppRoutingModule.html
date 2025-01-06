@@ -131,7 +131,7 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgModule} from &#x27;@angular/core&#x27;;
 import {RouterModule, Routes} from &#x27;@angular/router&#x27;;
-import {NotFoundComponent} from &#x27;./components/not-found/not-found.component&#x27;;
+import {HttpErrorComponent} from &#x27;./components/http-error/http-error.component&#x27;;
 import {DashboardCountryDetailComponent} from &#x27;./pages/dashboard-country-detail/dashboard-country-detail.component&#x27;;
 import {DashboardCountriesComponent} from &quot;./pages/dashboard-countries/dashboard-countries.component&quot;;
 
@@ -146,7 +146,7 @@ const routes: Routes &#x3D; [
   },
   {
     path: &#x27;**&#x27;,
-    component: NotFoundComponent,
+    component: HttpErrorComponent,
   },
 ];
 

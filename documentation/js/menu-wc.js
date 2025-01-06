@@ -59,13 +59,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-AppModule-c1a4b10f1bf52506c35b7aec20d8088c0f6907ee334e3fa2d387cd26a78068b4ff6b51a0f0ecd948742b1761e5b3437fe22115db998ed7c9d12ff79165ea46bb"' : 'data-bs-target="#xs-components-links-module-AppModule-c1a4b10f1bf52506c35b7aec20d8088c0f6907ee334e3fa2d387cd26a78068b4ff6b51a0f0ecd948742b1761e5b3437fe22115db998ed7c9d12ff79165ea46bb"' }>
+                                            'data-bs-target="#components-links-module-AppModule-c976ec1f5cca36ded46ebfb63a5028191c73312c83cc6f25036638a876e8e65c17d9c0be139a9062da78fdb5876e8efcb1607e4629d3d7c5e2d40fab71940485"' : 'data-bs-target="#xs-components-links-module-AppModule-c976ec1f5cca36ded46ebfb63a5028191c73312c83cc6f25036638a876e8e65c17d9c0be139a9062da78fdb5876e8efcb1607e4629d3d7c5e2d40fab71940485"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-c1a4b10f1bf52506c35b7aec20d8088c0f6907ee334e3fa2d387cd26a78068b4ff6b51a0f0ecd948742b1761e5b3437fe22115db998ed7c9d12ff79165ea46bb"' :
-                                            'id="xs-components-links-module-AppModule-c1a4b10f1bf52506c35b7aec20d8088c0f6907ee334e3fa2d387cd26a78068b4ff6b51a0f0ecd948742b1761e5b3437fe22115db998ed7c9d12ff79165ea46bb"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-c976ec1f5cca36ded46ebfb63a5028191c73312c83cc6f25036638a876e8e65c17d9c0be139a9062da78fdb5876e8efcb1607e4629d3d7c5e2d40fab71940485"' :
+                                            'id="xs-components-links-module-AppModule-c976ec1f5cca36ded46ebfb63a5028191c73312c83cc6f25036638a876e8e65c17d9c0be139a9062da78fdb5876e8efcb1607e4629d3d7c5e2d40fab71940485"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
                                             </li>
@@ -101,13 +101,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/HeaderComponent.html" data-type="entity-link" >HeaderComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/HttpErrorComponent.html" data-type="entity-link" >HttpErrorComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/InfoDetailChartComponent.html" data-type="entity-link" >InfoDetailChartComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/LoaderComponent.html" data-type="entity-link" >LoaderComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/NotFoundComponent.html" data-type="entity-link" >NotFoundComponent</a>
                             </li>
                         </ul>
                     </li>
@@ -178,9 +178,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/Olympic.html" data-type="entity-link" >Olympic</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/OnResize.html" data-type="entity-link" >OnResize</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Participation.html" data-type="entity-link" >Participation</a>

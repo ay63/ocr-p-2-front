@@ -3,19 +3,23 @@ import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-not-found',
+  selector: 'app-http-error',
   standalone: true,
-  templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss',
+  templateUrl: './http-error.component.html',
+  styleUrl: './http-error.component.scss',
   imports: [
     RouterLink,
     NgIf
   ],
 })
-export class NotFoundComponent implements OnInit {
+export class HttpErrorComponent implements OnInit {
 
   @Input()
-  title: string = 'No corresponding page found';
+  message: string = 'No corresponding page found';
+
+  @Input()
+  statusCode!: number;
+
   showGoBackLink!: boolean;
 
   constructor(private router: Router) {

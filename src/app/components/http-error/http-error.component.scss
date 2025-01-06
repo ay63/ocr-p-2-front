@@ -1,4 +1,4 @@
-.not-found-container {
+.http-error-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,14 +7,23 @@
   align-content: center;
   flex-direction: column;
   overflow: hidden;
+
+  span{
+    font-size: 2rem;
+    color: var(--main-green-color);
+  }
 }
 
-.page-not-found {
+.page-http-error {
   font-size: 3rem;
   margin-bottom: 16px;
 }
 
-.go-back {
+.http-error-code{
+  margin-bottom: 16px;
+}
+
+.go-back{
   color: var(--main-green-color);
   font-weight: bold;
   font-size: 2rem;
@@ -26,8 +35,14 @@
 }
 
 @media (max-width: 800px) {
-  .not-found-container {
-    .page-not-found {
+  .http-error-container {
+
+    span{
+      font-size: 1.25rem;
+      color: var(--main-green-color);
+    }
+
+    .page-http-error {
       font-size: 1.5rem;
     }
 

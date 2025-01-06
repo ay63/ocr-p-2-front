@@ -413,7 +413,7 @@ export class OlympicService {
         if (value !&#x3D;&#x3D; null &amp;&amp; value.length &gt; 0) {
           this.olympics$.next(value)
         } else {
-          this.toastService.error(&#x27;Data could not be loaded, please try later or contact the support team&#x27;);
+          this.toastService.error(&#x27;Error, please try later or contact the support team&#x27;);
         }
       }),
       catchError((error: string, caught: Observable&lt;Olympic[] | null&gt;) &#x3D;&gt; {
