@@ -1,9 +1,6 @@
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
   Input,
-  ViewChild,
 } from '@angular/core';
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {Router} from "@angular/router";
@@ -23,8 +20,6 @@ import {CountryAllChartFormat} from 'src/app/core/models/types/CountryAllChartFo
 })
 export class CountriesChartComponent {
 
-  @ViewChild('containerRef')
-  containerRef!: ElementRef;
 
   @Input()
   data!: CountryAllChartFormat[];

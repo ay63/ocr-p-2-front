@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {CountryDetailChartFormat} from "../../core/models/types/CountryDetailChartFormat";
 
@@ -11,9 +11,6 @@ import {CountryDetailChartFormat} from "../../core/models/types/CountryDetailCha
 })
 
 export class CountryDetailChartComponent  {
-
-  @ViewChild('containerRef')
-  containerRef!: ElementRef;
 
   @Input()
   data!: CountryDetailChartFormat|[]
