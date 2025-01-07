@@ -1,16 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { LineChartModule } from "@swimlane/ngx-charts";
-import { ActivatedRoute } from "@angular/router";
-import { NgIf } from "@angular/common";
-import { CountryDetailChartComponent } from '../../components/country-detail-chart/country-detail-chart.component';
-import { InfoDetailChartComponent } from '../../components/info-detail-chart/info-detail-chart.component';
-import { UnsubscribeObservableService } from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
-import { CountryDetailChartFormat } from 'src/app/core/models/types/CountryDetailChartFormat';
-import { Olympic } from 'src/app/core/models/interfaces/Olympic';
-import { takeUntil } from 'rxjs';
-import { Participation } from 'src/app/core/models/interfaces/Participation';
-import { ChartFormatDataService } from 'src/app/core/services/chart-format/chart-format-data.service';
-import { ChartDataService } from 'src/app/core/services/chart-data/chart-data.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {LineChartModule} from "@swimlane/ngx-charts";
+import {ActivatedRoute} from "@angular/router";
+import {NgIf} from "@angular/common";
+import {CountryDetailChartComponent} from '../../components/country-detail-chart/country-detail-chart.component';
+import {InfoDetailChartComponent} from '../../components/info-detail-chart/info-detail-chart.component';
+import {UnsubscribeObservableService} from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
+import {CountryDetailChartFormat} from 'src/app/core/models/types/CountryDetailChartFormat';
+import {Olympic} from 'src/app/core/models/interfaces/Olympic';
+import {takeUntil} from 'rxjs';
+import {Participation} from 'src/app/core/models/interfaces/Participation';
+import {ChartFormatDataService} from 'src/app/core/services/chart-format/chart-format-data.service';
+import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
 import {HttpErrorComponent} from "../../components/http-error/http-error.component";
 
 @Component({
@@ -38,8 +38,8 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservableServic
   totalNumberOfAthletes: number = 0;
 
   constructor(private chartFormat: ChartFormatDataService,
-    private chartData: ChartDataService,
-    private route: ActivatedRoute
+              private chartData: ChartDataService,
+              private route: ActivatedRoute
   ) {
     super();
   }
@@ -59,9 +59,10 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservableServic
         }
 
         if (countryData !== undefined) {
-          this.numberOfEntries = countryData.participations.length ?? 0;
-          this.totalNumberMedals = countryData.participations.reduce((acc: number, data: Participation) => acc + data.medalsCount, 0);
-          this.totalNumberOfAthletes = countryData.participations.reduce((acc: number, data: Participation) => acc + data.athleteCount, 0);
+          const participants: Participation[] = countryData.participations
+          this.numberOfEntries = participants.length ?? 0;
+          this.totalNumberMedals = participants.reduce((acc: number, data: Participation) => acc + data.medalsCount, 0);
+          this.totalNumberOfAthletes = participants.reduce((acc: number, data: Participation) => acc + data.athleteCount, 0);
         }
       }
     )

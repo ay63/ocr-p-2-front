@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { catchError, map, Observable } from 'rxjs';
+import {catchError, EMPTY, map, Observable, of} from 'rxjs';
 import { Olympic } from '../../models/interfaces/Olympic';
 import { Participation } from '../../models/interfaces/Participation';
 import { OlympicService } from '../olympic/olympic.service';
@@ -32,9 +32,9 @@ export class ChartFormatDataService {
           };
         })
       }),
-      catchError((error: string, caught) => {
+      catchError((error: string) => {
         this.toastService.error(error);
-        return caught;
+        return EMPTY
       })
     )
   }
