@@ -40,6 +40,7 @@ This folder contains utility services:
 - **`ChartData`**: Handles data processing for charts.
 - **`ChartFormat`**: Formats data for the graphics library.
 - **`Loader`**: Manages the logic for displaying loaders.
+- **`HttpInterceptop`** : catch all request to add some logic
 - **`Olympic`**: Simulates API calls for Olympic data.
 - **`UnsubscribeObservable`**: Manages the closure of observables.
 
@@ -48,7 +49,6 @@ This folder contains interfaces and types used across the application.
 
 #### `interfaces`
 - **`Olympic`**: Defines the structure of HTTP responses.
-- **`OnResize`**: Used to adjust chart sizes dynamically.
 - **`Participations`**: Defines the structure for participation data.
 
 #### `types`
