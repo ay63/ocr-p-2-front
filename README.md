@@ -12,6 +12,11 @@ Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:42
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Build documentation
+- Run `npm run doc:build` to build doc
+- Run `npm run doc:build:run` to build doc and run server
+- Run `npm run doc:run` to run server
+
 ## Project Structure
 
 ### `components` folder
@@ -55,3 +60,4 @@ This folder contains interfaces and types used across the application.
 
 - [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
 - [ngx-charts](https://swimlane.gitbook.io/ngx-charts)
+- [compodoc](https://www.npmjs.com/package/@compodoc/compodoc)
