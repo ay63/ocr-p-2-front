@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {map, Observable} from 'rxjs';
+import {EMPTY, map, Observable, of} from 'rxjs';
 import {OlympicService} from "../olympic/olympic.service";
 import {Olympic} from "../../models/interfaces/Olympic";
 import {catchError} from "rxjs/operators";
@@ -19,9 +19,9 @@ export class ChartDataService {
         if (!olympics) return 0;
         return olympics[0].participations.length;
       }),
-      catchError((error: string, caught) => {
+      catchError((error: string) => {
         this.toastService.error(error);
-        return caught;
+        return EMPTY;
       })
     )
   }
@@ -32,9 +32,9 @@ export class ChartDataService {
         if (!olympic) return 0;
         return new Set(olympic.map((olymp: Olympic) => olymp.country)).size;
       }),
-      catchError((error: string, caught) => {
+      catchError((error: string) => {
         this.toastService.error(error);
-        return caught;
+        return EMPTY;
       })
     )
   }
@@ -45,9 +45,9 @@ export class ChartDataService {
         if (!olympics) return undefined
         return olympics.find(olympic => olympic.id === Number(id));
       }),
-      catchError((error: string, caught) => {
+      catchError((error: string) => {
         this.toastService.error(error);
-        return caught;
+        return EMPTY;
       })
     );
   }

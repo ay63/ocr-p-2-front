@@ -1,7 +1,9 @@
 import {Injectable, OnDestroy} from "@angular/core";
 import {Subject} from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UnsubscribeObservableService implements OnDestroy {
 
   private unsubscribe$: Subject<void> = new Subject();
