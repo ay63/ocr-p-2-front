@@ -9,13 +9,12 @@ import {CountriesChartComponent} from '../../components/countries-chart/countrie
 import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
 import {HttpErrorComponent} from "../../components/http-error/http-error.component";
 import {InfoDetailChart} from "../../core/models/types/InfoDetailChart";
-import {AsyncPipe, NgForOf} from "@angular/common";
 
 
 @Component({
   selector: 'app-dashboard-countries',
   standalone: true,
-  imports: [InfoDetailChartComponent, CountriesChartComponent, HttpErrorComponent, AsyncPipe, NgForOf],
+  imports: [InfoDetailChartComponent, CountriesChartComponent, HttpErrorComponent ],
   templateUrl: './dashboard-countries.component.html',
   styleUrl: './dashboard-countries.component.scss'
 })
@@ -50,16 +49,15 @@ export class DashboardCountriesComponent extends UnsubscribeObservableService im
   }
 
   private getCountriesData(): void {
-    combineLatest([
-      this.chartData.getTotalJos(),
-      this.chartData.getTotalCountry(),
-      this.chartFormatService.getFormatDataForPieChartForAllCountry()
-    ]).pipe(takeUntil(this.getUnsubscribe)).subscribe(
-      ([totalOlympics, totalHostingCountries, dashboardData]: [number, number, CountryAllChartFormat[]]) => {
-        this.dataForDashboard = dashboardData;
-        this.isDataLoaded = !!this.dataForDashboard?.length
+    this.chartFormatService.getFormatDataForPieChartForAllCountry().subscribe(
+      {
+        next : (dashboardData: CountryAllChartFormat[]) => {
+          this.dataForDashboard = dashboardData;
+          this.isDataLoaded = !!this.dataForDashboard?.length
+        },
+        error: error => { console.error(error) }
       }
-    );
+    )
   }
 
   override ngOnDestroy(): void {
