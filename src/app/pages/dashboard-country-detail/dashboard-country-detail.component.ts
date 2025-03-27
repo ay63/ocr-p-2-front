@@ -12,6 +12,7 @@ import {Participation} from 'src/app/core/models/interfaces/Participation';
 import {ChartFormatDataService} from 'src/app/core/services/chart-format/chart-format-data.service';
 import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
 import {HttpErrorComponent} from "../../components/http-error/http-error.component";
+import {InfoDetailChart} from "../../core/models/types/InfoDetailChart";
 
 @Component({
   selector: 'app-dashboard-country-detail',
@@ -33,9 +34,7 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservableServic
   @Input()
   dataCountryChart!: CountryDetailChartFormat | [];
 
-  numberOfEntries: number = 0;
-  totalNumberMedals: number = 0;
-  totalNumberOfAthletes: number = 0;
+  infoDetailCharForCountry!: InfoDetailChart[];
 
   constructor(private chartFormat: ChartFormatDataService,
               private chartData: ChartDataService,
@@ -60,9 +59,11 @@ export class DashboardCountryDetailComponent extends UnsubscribeObservableServic
 
         if (countryData !== undefined) {
           const participants: Participation[] = countryData.participations
-          this.numberOfEntries = participants.length ?? 0;
-          this.totalNumberMedals = participants.reduce((acc: number, data: Participation) => acc + data.medalsCount, 0);
-          this.totalNumberOfAthletes = participants.reduce((acc: number, data: Participation) => acc + data.athleteCount, 0);
+          let numberOfEntries = participants.length ?? 0;
+          let totalNumberMedals = participants.reduce((acc: number, data: Participation) => acc + data.medalsCount, 0);
+          let totalNumberOfAthletes = participants.reduce((acc: number, data: Participation) => acc + data.athleteCount, 0);
+          this.infoDetailCharForCountry = this.chartData.getInfoDetailCharForCountry(numberOfEntries , totalNumberMedals, totalNumberOfAthletes);
+
         }
       }
     )

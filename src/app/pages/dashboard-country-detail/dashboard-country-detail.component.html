@@ -3,9 +3,10 @@
     <div class="dashboard-country-detail-data-section">
       <h1 class="title-dashboard">{{ countrySelectedData.country }}</h1>
       <div class="dashboard-country-detail-data">
-        <app-info-detail-chart [title]="'Number of entries'" [value]="numberOfEntries"/>
-        <app-info-detail-chart [title]="'Total number medals'" [value]="totalNumberMedals"/>
-        <app-info-detail-chart [title]="'Total number of athletes'" [value]="totalNumberOfAthletes"/>
+
+        @for (infoDetail of infoDetailCharForCountry; track infoDetail.title){
+          <app-info-detail-chart [title]=infoDetail.title [value]=infoDetail.value />
+        }
       </div>
       <div *ngIf="dataCountryChart?.length" class="dashboard-country-chart-container">
         <app-country-detail-chart [data]="dataCountryChart"/>

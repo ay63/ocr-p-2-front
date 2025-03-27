@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {combineLatest} from 'rxjs';
+import {combineLatest, take} from 'rxjs';
 import {takeUntil} from "rxjs";
 import {InfoDetailChartComponent} from '../../components/info-detail-chart/info-detail-chart.component';
 import {UnsubscribeObservableService} from 'src/app/core/services/unsubsribe-observable/unsubscribe-observable.service';
@@ -8,22 +8,22 @@ import {ChartFormatDataService} from 'src/app/core/services/chart-format/chart-f
 import {CountriesChartComponent} from '../../components/countries-chart/countries-chart.component';
 import {ChartDataService} from 'src/app/core/services/chart-data/chart-data.service';
 import {HttpErrorComponent} from "../../components/http-error/http-error.component";
+import {InfoDetailChart} from "../../core/models/types/InfoDetailChart";
 
 
 @Component({
   selector: 'app-dashboard-countries',
   standalone: true,
-  imports: [InfoDetailChartComponent, CountriesChartComponent, HttpErrorComponent],
+  imports: [InfoDetailChartComponent, CountriesChartComponent, HttpErrorComponent ],
   templateUrl: './dashboard-countries.component.html',
   styleUrl: './dashboard-countries.component.scss'
 })
 export class DashboardCountriesComponent extends UnsubscribeObservableService implements OnInit {
 
-  totalOlympics!: number;
-  totalHostingCountries!: number;
   dataForDashboard!: CountryAllChartFormat[];
   title!: string;
   isDataLoaded!: boolean;
+  infoDataCountriesChart!: InfoDetailChart[];
 
   constructor(
     private chartData: ChartDataService,
@@ -35,24 +35,29 @@ export class DashboardCountriesComponent extends UnsubscribeObservableService im
   ngOnInit(): void {
     this.title = 'Medals per country';
     this.getCountriesData();
+
+    this.chartData.getInfoDetailsChartForCountries()
+      .pipe(take(1))
+      .subscribe({
+        next: data => {
+          this.infoDataCountriesChart = data;
+        },
+        error: error => {
+          console.error(error);
+        }
+      });
   }
 
   private getCountriesData(): void {
-    combineLatest([
-      this.chartData.getTotalJos(),
-      this.chartData.getTotalCountry(),
-      this.chartFormatService.getFormatDataForPieChartForAllCountry()
-    ]).pipe(takeUntil(this.getUnsubscribe)).subscribe(
-      ([totalOlympics, totalHostingCountries, dashboardData]: [number, number, CountryAllChartFormat[]]) => {
-        this.totalOlympics = totalOlympics;
-        this.totalHostingCountries = totalHostingCountries;
-        this.dataForDashboard = dashboardData;
-
-        this.isDataLoaded = this.dataForDashboard?.length > 0
-          && this.totalOlympics > 0
-          && this.totalHostingCountries > 0;
+    this.chartFormatService.getFormatDataForPieChartForAllCountry().subscribe(
+      {
+        next : (dashboardData: CountryAllChartFormat[]) => {
+          this.dataForDashboard = dashboardData;
+          this.isDataLoaded = !!this.dataForDashboard?.length
+        },
+        error: error => { console.error(error) }
       }
-    );
+    )
   }
 
   override ngOnDestroy(): void {
