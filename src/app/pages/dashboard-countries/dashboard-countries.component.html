@@ -11,8 +11,9 @@
       </div>
       <h1 class="title-dashboard">{{ title }}</h1>
       <div class="dashboard-info-chart">
-        <app-info-detail-chart [title]="'Number of JOs'" [value]="totalOlympics"/>
-        <app-info-detail-chart [title]="'Number of countries'" [value]="totalHostingCountries"/>
+        @for (infoDetail of infoDataCountriesChart; track infoDetail.title){
+          <app-info-detail-chart [title]=infoDetail.title [value]=infoDetail.value />
+        }
       </div>
       <div class="dashboard-chart-container">
         <app-countries-chart [data]="dataForDashboard"/>
